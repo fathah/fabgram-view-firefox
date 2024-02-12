@@ -1,45 +1,28 @@
 {
-  "manifest_version": 3,
-  "name": "Fabgram Viewer",
+  "manifest_version": 2,
+  "name": "Fabgram View",
   "version": "1.0",
-  "description": "Your Fab Assistant Viewer",
+  "description": "Your Fab Assistant",
   "icons": {
-    "16": "images/icon-16.png",
     "48": "images/icon-48.png",
-    "128": "images/icon-128.png"
+    "96": "images/icon-96.png"
   },
-  "action": {
-    "default_icon": {
-      "16": "images/icon-16.png",
-    "48": "images/icon-48.png",
-    "128": "images/icon-128.png"
-    },
-    "default_title": "Fabgram Viewer",
-    "default_popup": "popup.html"
+  "applications": {
+    "gecko": {
+      "id": "fabgram@example.com",
+      "strict_min_version": "60.0"
+    }
   },
   "permissions": [
-    "activeTab","clipboardWrite","clipboardRead"
-  ],
-  "host_permissions": [
-    "*://*/*"
+    "clipboardRead",
+    "clipboardWrite",
+    "https://airtel-net.vercel.app/*"
   ],
   "content_scripts": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
-      "css": [
-        "style.css"
-      ],
-      "js": [
-        "content.js"
-      ]
+      "matches": ["<all_urls>"],
+      "css": ["style.css"],
+      "js": ["content.js"]
     }
-  ],
-  "background": {
-    "service_worker": "background.js"
-   
-  }
- 
-
+  ]
 }
